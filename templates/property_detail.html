@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ property.title }} - Real Estate Website{% endblock %}
+
+{% block content %}
+<section class="property-detail">
+    <div class="container">
+        <img src="{{ property.image_url or 'https://via.placeholder.com/800x500' }}" alt="{{ property.title }}" class="detail-image">
+        <h1>{{ property.title }}</h1>
+        <p class="price">${{ "{:,.0f}".format(property.price) }}</p>
+        <div class="property-specs">
+            <span>🛏️ {{ property.bedrooms }} Bedrooms</span>
+            <span>🚿 {{ property.bathrooms }} Bathrooms</span>
+            <span>📐 {{ property.square_feet }} sq ft</span>
+        </div>
+        <p class="address">📍 {{ property.address }}, {{ property.city }}, {{ property.state }}</p>
+        <div class="description">
+            <h2>Description</h2>
+            <p>{{ property.description }}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

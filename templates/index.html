@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Real Estate Website{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1>Find Your Dream Home</h1>
+        <p>Browse our selection of quality properties</p>
+        <a href="{{ url_for('properties') }}" class="btn">View All Properties</a>
+    </div>
+</section>
+
+<section class="featured-properties">
+    <div class="container">
+        <h2>Featured Properties</h2>
+        <div class="property-grid">
+            {% for property in properties %}
+            <div class="property-card">
+                <img src="{{ property.image_url or 'https://via.placeholder.com/400x300' }}" alt="{{ property.title }}">
+                <div class="property-info">
+                    <h3>{{ property.title }}</h3>
+                    <p class="price">${{ "{:,.0f}".format(property.price) }}</p>
+                    <p class="details">{{ property.bedrooms }} beds | {{ property.bathrooms }} baths | {{ property.square_feet }} sq ft</p>
+                    <p class="location">{{ property.city }}, {{ property.state }}</p>
+                    <a href="{{ url_for('property_detail', id=property.id) }}" class="btn-small">View Details</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
