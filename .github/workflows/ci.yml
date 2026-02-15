@@ -32,7 +32,41 @@ jobs:
       run: |
         docker build -t real-estate-app:latest .
 
-    - name: Verify Docker image was built
+    - name: Test Docker container
       run: |
-        docker images | grep real-estate-app
-        echo "✅ Docker image built successfully!"
+        # Start the container
+        docker run -d -p 5000:5000 --name test-container real-estate-app:latest
+        
+        # Wait for container to be ready (30 seconds with health checks)
+        echo "Waiting for container to start..."
+        sleep 5
+        
+        # Check if container is running
+        docker ps
+        
+        # Show container logs
+        echo "Container logs:"
+        docker logs test-container
+        
+        # Wait a bit more for Flask to fully start
+        sleep 10
+        
+        # Try to connect with retries
+        echo "Testing connection..."
+        for i in {1..10}; do
+          if curl -f http://localhost:5000; then
+            echo "✅ Successfully connected to Flask app!"
+            break
+          else
+            echo "Attempt $i failed, retrying..."
+            sleep 3
+          fi
+        done
+        
+        # Show final logs
+        echo "Final container logs:"
+        docker logs test-container
+        
+        # Clean up
+        docker stop test-container
+        docker rm test-container
