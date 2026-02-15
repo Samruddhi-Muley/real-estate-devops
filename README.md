@@ -100,8 +100,4 @@ real-estate-devops/
 - [ ] Kubernetes deployment
 - [ ] CI/CD pipeline
 
-##  License
-MIT
 
-##  Author
-Samruddhi Muley
