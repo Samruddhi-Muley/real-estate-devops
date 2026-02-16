@@ -136,3 +136,7 @@ docker-compose up --build
 ```
 
 Visit `http://localhost:5000`
+
+echo "## CI/CD Status" >> README.md
+echo "![Docker Image](https://img.shields.io/docker/v/samruddhi1muley/real-estate-app?label=Docker%20Image)" >> README.md
+
