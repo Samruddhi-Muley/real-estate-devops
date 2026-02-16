@@ -100,4 +100,39 @@ real-estate-devops/
 - [ ] Kubernetes deployment
 - [ ] CI/CD pipeline
 
+## Running the Application
 
+### Local Setup
+
+1. Clone the repository
+```bash
+git clone https://github.com/Samruddhi-Muley/real-estate-devops.git
+cd real-estate-devops
+```
+
+2. Create virtual environment
+```bash
+python -m venv venv
+venv\Scripts\activate  # Windows
+```
+
+3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+4. Run the application
+```bash
+python app.py
+```
+
+**Note:** The database will automatically initialize with sample data on first run!
+
+5. Visit `http://127.0.0.1:5000`
+
+### Docker Setup
+```bash
+docker-compose up --build
+```
+
+Visit `http://localhost:5000`
