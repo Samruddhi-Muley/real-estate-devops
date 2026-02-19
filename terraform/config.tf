@@ -31,24 +31,23 @@ resource "aws_security_group" "app_sg" {
   }
 }
 
-
-# EC2 Instance
 resource "aws_instance" "app_server" {
-  ami           = "ami-0317b0f0a0144b137"
+
+  ami           = "ami-019715e0d74f695be"   # Ubuntu 22.04 LTS
   instance_type = "t3.micro"
   key_name      = "real-estate-key"
 
   security_groups = [aws_security_group.app_sg.name]
 
   user_data = <<-EOF
-              #!/bin/bash
-              sudo apt update -y
-              sudo apt install docker.io -y
-              sudo systemctl start docker
-              sudo systemctl enable docker
-              sudo docker pull samruddhi1muley/real-estate-app:latest
-              sudo docker run -d -p 80:5000 samruddhi1muley/real-estate-app:latest
-              EOF
+  #!/bin/bash
+  sudo apt update -y
+  sudo apt install docker.io -y
+  sudo systemctl start docker
+  sudo systemctl enable docker
+  sudo docker pull samruddhi1muley/real-estate-app:latest
+  sudo docker run -d -p 80:5000 samruddhi1muley/real-estate-app:latest
+  EOF
 
   tags = {
     Name = "DevOps-Flask-App"
