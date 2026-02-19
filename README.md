@@ -375,7 +375,7 @@ Code → GitHub → Docker → Terraform → AWS EC2 → Live Application
 
 ### Application Running on AWS EC2
 
-![Application Screenshot](C:\Users\hp\Downloads\np\real-estate-devops\Screenshot (268).png)
+![Application Screenshot](https://github.com/Samruddhi-Muley/real-estate-devops/tree/main/screenshots/Screenshot (268).png)
 
 Example:
 
