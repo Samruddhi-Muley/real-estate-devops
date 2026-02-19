@@ -10,6 +10,16 @@ venv/
 ENV/
 .env
 
+# Terraform
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/*.tfstate
+terraform/*.tfstate.backup
+
+# Private keys
+terraform/*.pem
+*.pem
+
 # Flask
 instance/
 .webassets-cache
