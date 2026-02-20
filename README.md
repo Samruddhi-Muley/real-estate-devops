@@ -11,13 +11,7 @@ This project demonstrates modern DevOps practices including containerization, In
 Application deployed on AWS EC2 using Terraform and Docker:
 
 ```
-http://<your-ec2-public-ip>
-```
-
-Example:
-
-```
-http://52.66.167.176
+http://3.109.183.163/
 ```
 
 ---
