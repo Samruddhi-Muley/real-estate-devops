@@ -11,8 +11,9 @@ This project demonstrates modern DevOps practices including containerization, In
 Application deployed on AWS EC2 using Terraform and Docker:
 
 ```
-http://3.109.183.163/
+http://13.201.95.162:30007/
 ```
+
 
 ---
 
